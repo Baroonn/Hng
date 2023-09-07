@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "HngStage1": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 5000",
+      "launchBrowser": false
+    }
+  }
+}
