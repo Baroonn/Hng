@@ -1,9 +1,22 @@
 # Project: HNG-STAGE-2
 
+## Getting Started
+
+To get started with this project, you need to have .NET 6 installed on your machine.
+
+* Clone the repository to your local machine using the following command:
+
+```
+git clone https://github.com/Baroonn/Hng.git
+```
+
+* Navigate to HngStage2
+* Run HngStage2.csproj
+
 ## End-point: Add a new person
 ### Method: POST
 >```
->https://hngstage2.azurewebsites.net/api
+>https://localhost:5001/api
 >```
 ### Body (**raw**)
 
@@ -19,7 +32,7 @@
 ## End-point: Get a person with Id
 ### Method: GET
 >```
->https://hngstage2.azurewebsites.net/api/3
+>https://localhost:5001/api/3
 >```
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
@@ -27,7 +40,7 @@
 ## End-point: Update a person with Id
 ### Method: PUT
 >```
->https://hngstage2.azurewebsites.net/api/1
+>https://localhost:5001/api/1
 >```
 ### Body (**raw**)
 
@@ -43,7 +56,7 @@
 ## End-point: Delete a person with Id
 ### Method: DELETE
 >```
->https://hngstage2.azurewebsites.net/api/2
+>https://localhost:5001/api/2
 >```
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
@@ -51,7 +64,7 @@
 ## End-point: Get a person with parameters
 ### Method: GET
 >```
->https://hngstage2.azurewebsites.net/api?name=Mark Essien
+>https://localhost:5001/api?name=Mark Essien
 >```
 ### Query Params
 
@@ -66,7 +79,7 @@
 ## End-point: Update a person with parameters
 ### Method: PUT
 >```
->https://hngstage2.azurewebsites.net/api?name=Mark Normand
+>https://localhost:5001/api?name=Mark Normand
 >```
 ### Body (**raw**)
 
@@ -89,16 +102,10 @@
 ## End-point: Delete a person with parameters
 ### Method: DELETE
 >```
->https://hngstage2.azurewebsites.net/api?name=Shallipopi
+>https://localhost:5001/api?name=Shallipopi
 >```
 ### Query Params
 
 |Param|value|
 |---|---|
 |name|Shallipopi|
-
-
-
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-_________________________________________________
-Powered By: [postman-to-markdown](https://github.com/bautistaj/postman-to-markdown/)
