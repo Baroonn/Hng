@@ -34,6 +34,12 @@ app.Map("/api/{user}", async (HngDb db, string user, [FromBody] Person? updatepe
 {
     try
     {
+        var allowedMethods = new[] { "GET", "PUT", "DELETE" };
+        if (!allowedMethods.Contains(request.Method))
+        {
+            return Results.StatusCode(405);
+        }
+
         if (user == null) return Results.BadRequest();
         Person? person;
         if (int.TryParse(user, out int user_id))
@@ -49,7 +55,6 @@ app.Map("/api/{user}", async (HngDb db, string user, [FromBody] Person? updatepe
         else if (request.Method == "PUT" && updateperson != null) person.Name = updateperson.Name;
         else if (request.Method == "PUT" && updateperson == null) return Results.BadRequest();
         else if (request.Method == "DELETE") db.People.Remove(person);
-        else return Results.StatusCode(405);
         await db.SaveChangesAsync();
         return Results.NoContent();
     }
