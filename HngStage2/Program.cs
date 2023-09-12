@@ -49,6 +49,7 @@ app.Map("/api/{user}", async (HngDb db, string user, [FromBody] Person? updatepe
         else if (request.Method == "PUT" && updateperson != null) person.Name = updateperson.Name;
         else if (request.Method == "PUT" && updateperson == null) return Results.BadRequest();
         else if (request.Method == "DELETE") db.People.Remove(person);
+        else return Results.StatusCode(405);
         await db.SaveChangesAsync();
         return Results.NoContent();
     }
