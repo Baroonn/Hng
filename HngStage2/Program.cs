@@ -67,9 +67,20 @@ app.Map("/api", async (HngDb db, Person? updateperson, HttpRequest request) =>
 });
 
 
-app.MapGet("/api/{user_id}", async (HngDb db, int user_id) =>
+app.MapGet("/api/{user}", async (HngDb db, string user) =>
 {
-    var person = await db.People.FindAsync(user_id);
+    if (user == null) return Results.BadRequest();
+    int user_id;
+    Person? person;
+    if (int.TryParse(user, out user_id))
+    {
+        person = await db.People.FindAsync(user_id);
+    }
+    else
+    {
+        person = await db.People.Where(x => x.Name == user).FirstOrDefaultAsync();
+    }
+
     if (person == null) return Results.NotFound();
     return Results.Ok(person);
 });
