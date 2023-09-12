@@ -22,7 +22,7 @@ git clone https://github.com/Baroonn/Hng.git
 
 ```json
 {
-    "name":"Shallipopi"
+    "name":"Boluwatife"
 }
 ```
 
