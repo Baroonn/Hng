@@ -48,6 +48,13 @@ or
 >```
 >https://localhost:5001/api/1
 >```
+
+or 
+
+>```
+>https://localhost:5001/api/Mark
+>```
+
 ### Body (**raw**)
 
 ```json
@@ -59,59 +66,17 @@ or
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## End-point: Delete a person with Id
+## End-point: Delete a person
 ### Method: DELETE
 >```
 >https://localhost:5001/api/2
 >```
 
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+or 
 
-## End-point: Get a person with parameters
-### Method: GET
 >```
->https://localhost:5001/api?name=Mark Essien
+>https://localhost:5001/api/Mark
 >```
-### Query Params
-
-|Param|value|
-|---|---|
-|name|Mark Essien|
-
 
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-
-## End-point: Update a person with parameters
-### Method: PUT
->```
->https://localhost:5001/api?name=Mark Normand
->```
-### Body (**raw**)
-
-```json
-{
-    "name":"Mark Essien"
-}
-```
-
-### Query Params
-
-|Param|value|
-|---|---|
-|name|Mark Normand|
-
-
-
-⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
-
-## End-point: Delete a person with parameters
-### Method: DELETE
->```
->https://localhost:5001/api?name=Shallipopi
->```
-### Query Params
-
-|Param|value|
-|---|---|
-|name|Shallipopi|

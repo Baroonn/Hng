@@ -1,4 +1,5 @@
 using HngStage2.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,25 +30,20 @@ app.MapPost("/api", async (HngDb db, Person person) =>
     return Results.Created($"/api/{newPerson.Id}", newPerson);
 });
 
-app.Map("/api", async (HngDb db, Person? updateperson, HttpRequest request) =>
+app.Map("/api/{user}", async (HngDb db, string user, [FromBody] Person? updateperson, HttpRequest request) =>
 {
     try
     {
-        List<string> queryArray = new();
-        var query = $"SELECT * FROM people WHERE ";
-        string[] components = new string[request.Query.Count];
-
-        var counter = 0;
-        foreach (var item in request.Query)
+        if (user == null) return Results.BadRequest();
+        Person? person;
+        if (int.TryParse(user, out int user_id))
         {
-            queryArray.Add($"{item.Key} = " + "{" + counter + "}");
-            components[counter] = item.Value.ToString();
-            counter++;
+            person = await db.People.FindAsync(user_id);
         }
-
-        query += string.Join(" AND ", queryArray);
-
-        var person = db.People.FromSqlRaw<Person>(query, components).FirstOrDefault();
+        else
+        {
+            person = await db.People.Where(x => x.Name == user).FirstOrDefaultAsync();
+        }
         if (person == null) return Results.NotFound();
         if (request.Method == "GET") return Results.Ok(person);
         else if (request.Method == "PUT" && updateperson != null) person.Name = updateperson.Name;
@@ -66,41 +62,5 @@ app.Map("/api", async (HngDb db, Person? updateperson, HttpRequest request) =>
     }
 });
 
-
-app.MapGet("/api/{user}", async (HngDb db, string user) =>
-{
-    if (user == null) return Results.BadRequest();
-    int user_id;
-    Person? person;
-    if (int.TryParse(user, out user_id))
-    {
-        person = await db.People.FindAsync(user_id);
-    }
-    else
-    {
-        person = await db.People.Where(x => x.Name == user).FirstOrDefaultAsync();
-    }
-
-    if (person == null) return Results.NotFound();
-    return Results.Ok(person);
-});
-
-app.MapPut("/api/{user_id}", async (HngDb db, Person updateperson, int user_id) =>
-{
-    var person = await db.People.FindAsync(user_id);
-    if (person is null) return Results.NotFound();
-    person.Name = updateperson.Name;
-    await db.SaveChangesAsync();
-    return Results.NoContent();
-}).WithName("UpdatePerson");
-
-app.MapDelete("/api/{user_id}", async (HngDb db, int user_id) =>
-{
-    var person = await db.People.FindAsync(user_id);
-    if (person is null) return Results.NotFound();
-    db.People.Remove(person);
-    await db.SaveChangesAsync();
-    return Results.NoContent();
-});
 
 app.Run();
