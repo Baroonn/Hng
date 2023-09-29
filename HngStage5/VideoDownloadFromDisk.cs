@@ -26,11 +26,12 @@ namespace HngStage5
 
         [FunctionName("VideoDownloadFromDisk")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "api/stream/{filename}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "{filename}")] HttpRequest req,
             ILogger log, string filename)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
-            var file = Directory.GetFiles(@$"/fx-files").FirstOrDefault(x => Path.GetFileNameWithoutExtension(x).Equals(filename));
+            var file = Directory.GetFiles(@$"/fx-files")
+                .FirstOrDefault(x => Path.GetFileNameWithoutExtension(x).Equals(filename));
             if (file == null)
             {
                 return new NotFoundObjectResult(new
@@ -42,7 +43,7 @@ namespace HngStage5
 
             var stream = new FileStream(file, FileMode.Open, FileAccess.ReadWrite);
             string mimeType = GetMimeType(file);
-            var position = stream.Seek(0, SeekOrigin.Begin);
+
             stream.Position = 0;
             return new FileStreamResult(stream, mimeType);
         }

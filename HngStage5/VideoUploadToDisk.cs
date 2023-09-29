@@ -12,6 +12,7 @@ namespace HngStage5
 {
     public static class VideoUploadToDisk
     {
+        [RequestSizeLimit(512 * 1025 * 1024)]
         [FunctionName("VideoUploadToDisk")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "api/upload")] HttpRequest req,
@@ -43,10 +44,10 @@ namespace HngStage5
                 fileStream.Write(bytesInStream, 0, bytesInStream.Length);
                 fileStream.Close();
 
-                return new CreatedAtRouteResult($"api/stream/{fileName}", new
+                return new CreatedResult($"https://hngstage5.azurewebsites.net/{fileNameWithoutExtension}", new
                 {
                     Status = "success",
-                    Data = new { Name = fileName, Url = $"api/stream/{fileName}" }
+                    Data = new { Name = fileName, Url = $"https://hngstage5.azurewebsites.net/{fileNameWithoutExtension}" }
                 });
             }
         }

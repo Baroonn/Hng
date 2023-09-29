@@ -17,11 +17,11 @@ namespace HngStage5
         [FunctionName("VideoUpload")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "api")] HttpRequest req,
-            [File($"blobcontainer")] BlobContainerClient outputContainer,
+            [Blob($"blobcontainer", Connection = "StorageConnectionString")] BlobContainerClient outputContainer,
             ILogger log)
         {
-            //log.LogInformation("C# HTTP trigger function processed a request.");
-            //await outputContainer.CreateIfNotExistsAsync();
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            await outputContainer.CreateIfNotExistsAsync();
 
             var file = req.Form.Files[0];
 
