@@ -5,6 +5,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.18.0" />
+    <PackageReference Include="Azure.Storage.Files.Shares" Version="12.16.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="5.2.1" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.2.0" />
   </ItemGroup>

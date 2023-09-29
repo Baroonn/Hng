@@ -7,7 +7,6 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
-using System.Reflection.Metadata;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -18,7 +17,7 @@ namespace HngStage5
         [FunctionName("VideoUpload")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "api")] HttpRequest req,
-            [Blob($"blobcontainer", Connection = "StorageConnectionString")] BlobContainerClient outputContainer,
+            [File($"blobcontainer")] BlobContainerClient outputContainer,
             ILogger log)
         {
             //log.LogInformation("C# HTTP trigger function processed a request.");

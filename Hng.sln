@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HngStage1", "HngStage1\HngS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HngStage2", "HngStage2\HngStage2.csproj", "{61D6A83C-2C87-4711-B965-BEBB14108BCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HngStage5", "HngStage5\HngStage5.csproj", "{BDF30CE1-0B32-4BFA-B033-8D1365C0D960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HngStage5", "HngStage5\HngStage5.csproj", "{BDF30CE1-0B32-4BFA-B033-8D1365C0D960}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
