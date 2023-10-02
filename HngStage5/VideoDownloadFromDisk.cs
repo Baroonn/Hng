@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
@@ -13,16 +12,7 @@ namespace HngStage5
 
     public static class VideoDownloadFromDisk
     {
-        private static string GetMimeType(string filename)
-        {
-            var provider = new FileExtensionContentTypeProvider();
-            string contentType;
-            if (!provider.TryGetContentType(filename, out contentType))
-            {
-                contentType = "application/octet-stream";
-            }
-            return contentType;
-        }
+
 
         [FunctionName("VideoDownloadFromDisk")]
         public static async Task<IActionResult> Run(
@@ -42,7 +32,7 @@ namespace HngStage5
             }
 
             var stream = new FileStream(file, FileMode.Open, FileAccess.ReadWrite);
-            string mimeType = GetMimeType(file);
+            string mimeType = Helpers.GetMimeType(file);
 
             stream.Position = 0;
             return new FileStreamResult(stream, mimeType);

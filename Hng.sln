@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HngStage2", "HngStage2\HngS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HngStage5", "HngStage5\HngStage5.csproj", "{BDF30CE1-0B32-4BFA-B033-8D1365C0D960}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HngStage5Minimal", "HngStage5Minimal\HngStage5Minimal.csproj", "{84DFFF34-DAF2-4A6D-A690-09822284D585}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BDF30CE1-0B32-4BFA-B033-8D1365C0D960}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDF30CE1-0B32-4BFA-B033-8D1365C0D960}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDF30CE1-0B32-4BFA-B033-8D1365C0D960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84DFFF34-DAF2-4A6D-A690-09822284D585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84DFFF34-DAF2-4A6D-A690-09822284D585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84DFFF34-DAF2-4A6D-A690-09822284D585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84DFFF34-DAF2-4A6D-A690-09822284D585}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
